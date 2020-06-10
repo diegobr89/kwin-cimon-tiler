@@ -84,6 +84,7 @@ const onUpKey = function() {
 			workspace.slotWindowQuickTileTopRight();
 			break;
 		case WindowState.TILED_BOTTOM:
+			workspace.slotWindowNoBorder()
 			workspace.slotWindowQuickTileTop();
 			break;
 		case WindowState.TILED_BOTTOM_LEFT:

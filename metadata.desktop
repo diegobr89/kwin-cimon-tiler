@@ -1,0 +1,21 @@
+[Desktop Entry]
+Name=Cimon Tiler
+Comment=Allows quick tiling support like in cinnamon desktop. 
+This is a fork of https://github.com/tsoernes/kwin-quick-tile-2 made by Torstein Soernes.
+Icon=preferences-system-windows-script-test
+
+Type=Service
+
+X-Plasma-API=javascript
+X-Plasma-MainScript=src/main.js
+
+X-KDE-PluginInfo-Author=Diego Brusa
+X-KDE-PluginInfo-Email=diegobr89@gmail.com
+X-KDE-PluginInfo-Name=cimon-tiler
+X-KDE-PluginInfo-Version=0.1.0
+
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-ServiceTypes=KWin/Script
+X-KDE-PluginKeyword=cimon-tiler
+

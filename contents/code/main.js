@@ -36,16 +36,16 @@ function getWindowState() {
 	const horizontallyMax = clientGeometry.width === screenGeometry.width;
 	const tiledToTop = clientGeometry.height === halfHeight && clientGeometry.y === 0;
 	const tiledToBottom = clientGeometry.height === halfHeight && clientGeometry.y === halfHeight;
-	const tiledtoLeft = clientGeometry.width === halfWidth && clientGeometry.x === 0;
+	const tiledToLeft = clientGeometry.width === halfWidth && clientGeometry.x === 0;
 	const tiledToRight = clientGeometry.width === halfWidth && clientGeometry.x === halfWidth;
 
 	if(tiledToRight && verticallyMax)
 		return WindowState.TILED_RIGHT;
 
-	if(tiledtoLeft && verticallyMax)
+	if(tiledToLeft && verticallyMax)
 		return WindowState.TILED_LEFT;
 
-	if(tiledToBottom && tiledtoLeft)
+	if(tiledToBottom && tiledToLeft)
 	 	return WindowState.TILED_BOTTOM_LEFT;
 
 	if(tiledToBottom && tiledToRight)
@@ -54,10 +54,10 @@ function getWindowState() {
 	if(tiledToBottom && horizontallyMax)
 		return WindowState.TILED_BOTTOM;
 
-	if(tiledToTop && tiledtoLeft)
+	if(tiledToTop && tiledToLeft)
 		return WindowState.TILED_TOP_LEFT;
 
-	if(tiledToTop && tiledtoright)
+	if(tiledToTop && tiledToRight)
 	 return WindowState.TILED_TOP_RIGHT;
 
 	if(tiledToTop && horizontallyMax)
@@ -84,7 +84,6 @@ const onUpKey = function() {
 			workspace.slotWindowQuickTileTopRight();
 			break;
 		case WindowState.TILED_BOTTOM:
-			workspace.slotWindowNoBorder()
 			workspace.slotWindowQuickTileTop();
 			break;
 		case WindowState.TILED_BOTTOM_LEFT:
@@ -97,9 +96,12 @@ const onUpKey = function() {
 			workspace.slotWindowQuickTileTop();
 			// workspace.slotWindowQuickTileTop();
 			break;
+		case WindowState.TILED_TOP:
+			workspace.slotWindowMaximize();
+			break;
 		default:
+			//workspace.slotWindowNoBorder()
 			workspace.slotWindowQuickTileTop();
-			// workspace.slotWindowMaximize();
 	}
 
 }
@@ -126,8 +128,9 @@ const onDownKey = function() {
 			workspace.slotWindowQuickTileBottom();
 			workspace.slotWindowQuickTileBottom();
 			break;
-		// default:
-			// workspace.slotWindowMinimize();
+		default:
+			//workspace.slotWindowNoBorder()
+			workspace.slotWindowQuickTileBottom();
 	}
 }
 
@@ -151,6 +154,7 @@ const onLeftKey = function() {
 			workspace.slotWindowQuickTileLeft();
 			break;
 		default:
+			//workspace.slotWindowNoBorder()
 			workspace.slotWindowQuickTileLeft();
 	}
 }
@@ -175,6 +179,7 @@ const onRightKey = function() {
 			workspace.slotWindowQuickTileRight();
 			break;
 		default:
+			//workspace.slotWindowNoBorder()
 			workspace.slotWindowQuickTileRight();
 	}
 

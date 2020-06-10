@@ -9,7 +9,7 @@ Type=Service
 X-Plasma-API=javascript
 X-Plasma-MainScript=src/main.js
 
-X-KDE-PluginInfo-Author=Diego Brusa
+X-KDE-PluginInfo-Author=diegobr89
 X-KDE-PluginInfo-Email=diegobr89@gmail.com
 X-KDE-PluginInfo-Name=cimon-tiler
 X-KDE-PluginInfo-Version=0.1.0

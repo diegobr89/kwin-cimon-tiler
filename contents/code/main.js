@@ -9,7 +9,8 @@ const WindowState = {
 	TILED_TOP_LEFT: 7,
 	TILED_TOP_RIGHT: 8,
 	TILED_BOTTOM_LEFT: 9,
-	TILED_BOTTOM_RIGHT: 10
+	TILED_BOTTOM_RIGHT: 10,
+	TILED_NONE: 11
 }
 
 
@@ -72,6 +73,8 @@ function getWindowState() {
 	if (horizontallyMax) {
 		return WindowState.HORIZONTALLY_MAXIMIZED;
 	}
+
+	return WindowState.TILED_NONE;
 }
 
 const onUpKey = function() {
@@ -84,7 +87,7 @@ const onUpKey = function() {
 			workspace.slotWindowQuickTileTopRight();
 			break;
 		case WindowState.TILED_BOTTOM:
-			workspace.slotWindowQuickTileTop();
+			workspace.slotWindowQuickTileBottom();
 			break;
 		case WindowState.TILED_BOTTOM_LEFT:
 			workspace.slotWindowQuickTileLeft();
@@ -99,9 +102,12 @@ const onUpKey = function() {
 		case WindowState.TILED_TOP:
 			workspace.slotWindowMaximize();
 			break;
-		default:
-			//workspace.slotWindowNoBorder()
+		case WindowState.TILED_NONE:
 			workspace.slotWindowQuickTileTop();
+			break;
+		//default:
+			//workspace.slotWindowNoBorder()
+			//workspace.slotWindowQuickTileTop();
 	}
 
 }
@@ -116,7 +122,7 @@ const onDownKey = function() {
 			workspace.slotWindowQuickTileBottomRight();
 			break;
 		case WindowState.TILED_TOP:
-			workspace.slotWindowQuickTileBottom();
+			workspace.slotWindowQuickTileTop();
 			break;
 		case WindowState.TILED_TOP_LEFT:
 			workspace.slotWindowQuickTileLeft();
@@ -128,9 +134,12 @@ const onDownKey = function() {
 			workspace.slotWindowQuickTileBottom();
 			workspace.slotWindowQuickTileBottom();
 			break;
-		default:
-			//workspace.slotWindowNoBorder()
+		case WindowState.TILED_NONE:
 			workspace.slotWindowQuickTileBottom();
+			break;
+		//default:
+			//workspace.slotWindowNoBorder()
+			//workspace.slotWindowQuickTileBottom();
 	}
 }
 
@@ -149,13 +158,19 @@ const onLeftKey = function() {
 		case WindowState.TILED_BOTTOM_RIGHT:
 			workspace.slotWindowQuickTileBottom();
 			break;
+		case WindowState.TILED_RIGHT:
+			workspace.slotWindowQuickTileRight();
+			break;
 		case WindowState.MAXIMIZED:
 			workspace.slotWindowQuickTileLeft();
 			workspace.slotWindowQuickTileLeft();
 			break;
-		default:
-			//workspace.slotWindowNoBorder()
+		case WindowState.TILED_NONE:
 			workspace.slotWindowQuickTileLeft();
+		break;
+		//default:
+			//workspace.slotWindowNoBorder()
+			//workspace.slotWindowQuickTileLeft();
 	}
 }
 
@@ -174,19 +189,22 @@ const onRightKey = function() {
 		case WindowState.TILED_BOTTOM_LEFT:
 			workspace.slotWindowQuickTileBottom();
 			break;
+		case WindowState.TILED_LEFT:
+			workspace.slotWindowQuickTileLeft();
+			break;
 		case WindowState.MAXIMIZED:
 			workspace.slotWindowQuickTileRight();
 			workspace.slotWindowQuickTileRight();
 			break;
-		default:
-			//workspace.slotWindowNoBorder()
+		case WindowState.TILED_NONE:
 			workspace.slotWindowQuickTileRight();
+			break;
+		//default:
+			//workspace.slotWindowNoBorder()
+			//workspace.slotWindowQuickTileRight();
 	}
 
 }
-
-
-
 
 const shortcutPrefix = "Cimon Tiler "
 registerShortcut(shortcutPrefix + "Up", shortcutPrefix + "Up", "Meta+Up", onUpKey);

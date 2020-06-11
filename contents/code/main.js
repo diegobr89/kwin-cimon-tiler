@@ -132,7 +132,7 @@ const onDownKey = function() {
 			break;
 		case WindowState.MAXIMIZED:
 			workspace.slotWindowQuickTileBottom();
-			workspace.slotWindowQuickTileBottom();
+			//workspace.slotWindowQuickTileBottom();
 			break;
 		case WindowState.TILED_NONE:
 			workspace.slotWindowQuickTileBottom();
@@ -163,7 +163,7 @@ const onLeftKey = function() {
 			break;
 		case WindowState.MAXIMIZED:
 			workspace.slotWindowQuickTileLeft();
-			workspace.slotWindowQuickTileLeft();
+			//workspace.slotWindowQuickTileLeft();
 			break;
 		case WindowState.TILED_NONE:
 			workspace.slotWindowQuickTileLeft();
@@ -194,7 +194,7 @@ const onRightKey = function() {
 			break;
 		case WindowState.MAXIMIZED:
 			workspace.slotWindowQuickTileRight();
-			workspace.slotWindowQuickTileRight();
+			//workspace.slotWindowQuickTileRight();
 			break;
 		case WindowState.TILED_NONE:
 			workspace.slotWindowQuickTileRight();
